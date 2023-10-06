@@ -1,0 +1,140 @@
+{
+    "nodes": [
+        {
+            "node_type": "game",
+            "format": {
+                "name": "parquet"
+            },
+            "files": [
+                "./store/nodes/game.parquet"
+            ],
+            "node_id_col": "node_id",
+            "features": [
+                {
+                    "feature_col": "G",
+                    "feature_name": "G"
+                },
+                {
+                    "feature_col": "feat",
+                    "feature_name": "feat"
+                }
+            ]
+        },
+        {
+            "node_type": "topic",
+            "format": {
+                "name": "parquet"
+            },
+            "files": [
+                "./store/nodes/topic.parquet"
+            ],
+            "node_id_col": "node_id",
+            "features": [
+                {
+                    "feature_col": "T",
+                    "feature_name": "T"
+                },
+                {
+                    "feature_col": "feat",
+                    "feature_name": "feat"
+                }
+            ]
+        },
+        {
+            "node_type": "user",
+            "format": {
+                "name": "parquet"
+            },
+            "files": [
+                "./store/nodes/user.parquet"
+            ],
+            "node_id_col": "node_id",
+            "features": [
+                {
+                    "feature_col": "U",
+                    "feature_name": "U"
+                },
+                {
+                    "feature_col": "feat",
+                    "feature_name": "feat"
+                }
+            ],
+            "labels": [
+                {
+                    "label_col": "label",
+                    "task_type": "classification",
+                    "split_pct": [
+                        0.8,
+                        0.1,
+                        0.1
+                    ]
+                }
+            ]
+        }
+    ],
+    "edges": [
+        {
+            "relation": [
+                "game",
+                "based-on",
+                "topic"
+            ],
+            "format": {
+                "name": "parquet"
+            },
+            "files": [
+                "./store/edges/game_based-on_topic.parquet"
+            ],
+            "source_id_col": "source_id",
+            "dest_id_col": "dest_id",
+            "features": [
+                {
+                    "feature_col": "GvsT",
+                    "feature_name": "GvsT"
+                }
+            ]
+        },
+        {
+            "relation": [
+                "user",
+                "follows",
+                "topic"
+            ],
+            "format": {
+                "name": "parquet"
+            },
+            "files": [
+                "./store/edges/user_follows_topic.parquet"
+            ],
+            "source_id_col": "source_id",
+            "dest_id_col": "dest_id",
+            "features": [
+                {
+                    "feature_col": "UvsT",
+                    "feature_name": "UvsT"
+                }
+            ]
+        },
+        {
+            "relation": [
+                "user",
+                "plays",
+                "game"
+            ],
+            "format": {
+                "name": "parquet"
+            },
+            "files": [
+                "./store/edges/user_plays_game.parquet"
+            ],
+            "source_id_col": "source_id",
+            "dest_id_col": "dest_id",
+            "features": [
+                {
+                    "feature_col": "UvsG",
+                    "feature_name": "UvsG"
+                }
+            ]
+        }
+    ]
+}

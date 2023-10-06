@@ -1,0 +1,63 @@
+{
+    "graph_name": "UTG",
+    "num_nodes": 15,
+    "num_edges": 6,
+    "part_method": "metis",
+    "num_parts": 1,
+    "halo_hops": 1,
+    "node_map": {
+        "game": [
+            [
+                0,
+                5
+            ]
+        ],
+        "topic": [
+            [
+                5,
+                11
+            ]
+        ],
+        "user": [
+            [
+                11,
+                15
+            ]
+        ]
+    },
+    "edge_map": {
+        "game:based-on:topic": [
+            [
+                0,
+                2
+            ]
+        ],
+        "user:follows:topic": [
+            [
+                2,
+                4
+            ]
+        ],
+        "user:plays:game": [
+            [
+                4,
+                6
+            ]
+        ]
+    },
+    "ntypes": {
+        "game": 0,
+        "topic": 1,
+        "user": 2
+    },
+    "etypes": {
+        "game:based-on:topic": 0,
+        "user:follows:topic": 1,
+        "user:plays:game": 2
+    },
+    "part-0": {
+        "node_feats": "part0/node_feat.dgl",
+        "edge_feats": "part0/edge_feat.dgl",
+        "part_graph": "part0/graph.dgl"
+    }
+}
